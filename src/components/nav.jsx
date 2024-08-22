@@ -1,17 +1,22 @@
 import {Search, ShoppingCart, Heart, Menu, X} from 'lucide-react'
-import { useState } from 'react'
+import { useRef } from 'react'
 
 const Nav = () => {
-    const [isActive, setIsActive] = useState(false)
+    const navRef = useRef(null)
+
+    const toggleNav = () => {
+        navRef.current.classList.toggle('toggle-navbar')
+    }
 
     return (
         <header className="header">
             <nav className="navbar">
                 <a>Exclusive</a>
-                <button className='icon menu-icon' onClick={() => setIsActive(!isActive)}>
-                    {isActive ? <X /> : <Menu />}
+                <button className='icon menu-icon' onClick={toggleNav}>
+                    <Menu />
                 </button>
-                <ul className={isActive ? 'toggle-navbar' : ''}>
+                <ul ref={navRef}>
+                    <button className='icon' onClick={toggleNav}><X /></button>
                     <li><a>Home</a></li>
                     <li><a>Contact</a></li>
                     <li><a>About</a></li>

@@ -67,6 +67,13 @@ body {
     align-items: center;
 }
 
+.navbar ul button{
+    display: none;
+    position: absolute;
+    top: 3vh;
+    right: 4%;
+}
+
 .navbar ul li {
     position: relative;
     cursor: pointer;
@@ -173,18 +180,27 @@ body {
     }
 
     .navbar>ul {
-        display: none;
+        background-color: var(--BG);
         flex-direction: column;
+        justify-content: center;
         gap: 2vh;
-        position: absolute;
-        top: 114px;
+        position: fixed;
+        top: -100vh;
         left: 0;
         width: 100%;
+        height: 100vh;
+        overflow: hidden;
         padding: 2vh 0;
+        transition: all 0.5s ease;
     }
 
+    
+.navbar ul button{
+    display: flex !important;
+}
+    
     .toggle-navbar{
-        display: flex !important;
+        top: 0 !important;
     }
 
     .navbar ul li {
