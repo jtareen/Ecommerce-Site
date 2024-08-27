@@ -67,7 +67,7 @@ body {
     align-items: center;
 }
 
-.navbar ul button{
+.navbar ul button {
     display: none;
     position: absolute;
     top: 3vh;
@@ -194,12 +194,12 @@ body {
         transition: all 0.5s ease;
     }
 
-    
-.navbar ul button{
-    display: flex !important;
-}
-    
-    .toggle-navbar{
+
+    .navbar ul button {
+        display: flex !important;
+    }
+
+    .toggle-navbar {
         top: 0 !important;
     }
 
