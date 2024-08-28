@@ -28,8 +28,58 @@
     font-family: var(--primary-font);
 }
 
+h1{
+    font-size: 2rem !important;
+}
+h2{
+    font-size: 1.8rem !important;
+}
+h3{
+    font-size: 1.6rem !important;
+}
+h4{
+    font-size: 1.4rem !important;
+}
+h5{
+    font-size: 1.2rem !important;
+}
+h6{
+    font-size: 1rem !important;
+}
+
+p{
+    font-size: 0.8rem !important;
+}
+span{
+    font-size: 0.8rem !important;
+}
+
 body {
     min-width: 330px;
+    font-size: 20px;
+}
+
+.btn{
+    cursor: pointer;
+    background-color: var(--secondary-2);
+    color: var(--Text);
+    border: none;
+    padding: 10px 5%;
+    border-radius: 4px;
+}
+
+.btn-3{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 5px;
+    color: var(--Button);
+    background-color: var(--secondary);
 }
 
 .header {
@@ -192,6 +242,7 @@ body {
         overflow: hidden;
         padding: 2vh 0;
         transition: all 0.5s ease;
+        z-index: 99;
     }
 
 
@@ -213,5 +264,9 @@ body {
 
     .search-bar {
         height: 33px;
+    }
+    .btn-3{
+        width: 30px;
+        height: 30px;
     }
 }
