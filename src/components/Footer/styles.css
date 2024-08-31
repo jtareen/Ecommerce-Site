@@ -1,0 +1,86 @@
+footer {
+    background-color: var(--Button);
+    color: var(--primary);
+    width: 100%;
+    padding: 2% 8%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+footer p {
+    margin-top: 15px;
+}
+
+footer h2 {
+    margin-bottom: 15px;
+}
+
+footer label{
+    display: inline-block;
+    border: 2px solid var(--primary);
+    border-radius: 5px;
+    margin: 10px 0;
+    vertical-align: middle;
+}
+
+footer input{
+    outline: none;
+    border: none;
+    color: var(--primary);
+    background-color: var(--Button);
+    padding: 10px;
+    
+}
+
+footer label button{
+    cursor: pointer;
+    background-color: var(--Button);
+    border: none;
+    height: 100%;
+    padding: 5px;
+    vertical-align: middle;
+}
+
+.social-links{
+    flex: 1 0 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.social-links ul{
+    width: 100%;
+    text-align: center;
+}
+
+.social-links li{
+    display: inline-block;
+    margin: 20px 2%;
+}
+
+.social-links p{
+    color: var(--primary-1);
+}
+
+
+@media (max-width: 600px) {
+    footer{
+        padding: 2vh 4%;
+        flex-direction: column;
+    }
+    footer div{
+        text-align: center;
+        margin: 20px 0;
+    }
+    footer h2{
+
+    }
+    footer h5{
+        font-size: 1.5rem !important;
+    }
+    footer p{
+        font-size: 1rem !important;
+    }
+}

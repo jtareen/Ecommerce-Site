@@ -1,9 +1,7 @@
 import SectionHeader from '../SectionHeader';
 import { Product } from '../Product/Product';
 
-import { products } from '../../assets/data/data'
-
-const ProductSection = ({ title, subtitle, children, topButton, scrollable = false }) => {
+const ProductSection = ({ title, subtitle, products, topButton, scrollable = false }) => {
     return (
         <section>
             <SectionHeader title={title} subtitle={subtitle} topButton={topButton}  />

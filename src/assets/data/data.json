@@ -1,0 +1,363 @@
+[
+    {
+      "id": "product-001",
+      "name": "Ultrabook Pro 15",
+      "description": "A high-performance ultrabook with a 15-inch Retina display and 16GB RAM.",
+      "price": 1299.99,
+      "discount": {
+        "amount": 100.00,
+        "type": "fixed",
+        "validUntil": "2024-09-30T23:59:59Z"
+      },
+      "category": "Computer",
+      "brand": "TechCorp",
+      "stock": {
+        "quantity": 30,
+        "availability": "in stock"
+      },
+      "images": [
+        {
+          "url": "https://example.com/ultrabook-pro-15.jpg",
+          "altText": "Ultrabook Pro 15",
+          "isPrimary": true
+        }
+      ],
+      "ratings": {
+        "average": 4.7,
+        "reviews": [],
+        "totalReviews": 150
+      },
+      "sku": "COMP001",
+      "weight": 1.8,
+      "tags": ["ultrabook", "laptop", "techcorp"],
+      "createdAt": "2024-07-15T10:00:00Z",
+      "updatedAt": "2024-08-29T14:23:00Z",
+      "relatedProducts": ["product-002", "product-003"],
+      "status": "active"
+    },
+    {
+      "id": "product-002",
+      "name": "Gaming Laptop X",
+      "description": "A powerful gaming laptop with a 17-inch display and RTX 3080 GPU.",
+      "price": 1999.99,
+      "discount": {
+        "amount": 150.00,
+        "type": "fixed",
+        "validUntil": "2024-10-15T23:59:59Z"
+      },
+      "category": "Gaming",
+      "brand": "GameMaster",
+      "stock": {
+        "quantity": 20,
+        "availability": "in stock"
+      },
+      "images": [
+        {
+          "url": "https://example.com/gaming-laptop-x.jpg",
+          "altText": "Gaming Laptop X",
+          "isPrimary": true
+        }
+      ],
+      "ratings": {
+        "average": 4.8,
+        "reviews": [],
+        "totalReviews": 120
+      },
+      "sku": "GAM001",
+      "weight": 2.5,
+      "tags": ["gaming", "laptop", "gamemaster"],
+      "createdAt": "2024-07-10T10:00:00Z",
+      "updatedAt": "2024-08-28T14:23:00Z",
+      "relatedProducts": ["product-001", "product-003"],
+      "status": "active"
+    },
+    {
+      "id": "product-003",
+      "name": "Smartphone Max 12",
+      "description": "The latest flagship smartphone with a 6.7-inch OLED display and 128GB storage.",
+      "price": 999.99,
+      "discount": {
+        "amount": 50.00,
+        "type": "fixed",
+        "validUntil": "2024-09-15T23:59:59Z"
+      },
+      "category": "Smartphone",
+      "brand": "MobileTech",
+      "stock": {
+        "quantity": 50,
+        "availability": "in stock"
+      },
+      "images": [
+        {
+          "url": "https://example.com/smartphone-max-12.jpg",
+          "altText": "Smartphone Max 12",
+          "isPrimary": true
+        }
+      ],
+      "ratings": {
+        "average": 4.6,
+        "reviews": [],
+        "totalReviews": 200
+      },
+      "sku": "SMRT001",
+      "weight": 0.2,
+      "tags": ["smartphone", "mobiletech"],
+      "createdAt": "2024-08-01T10:00:00Z",
+      "updatedAt": "2024-08-29T14:23:00Z",
+      "relatedProducts": ["product-004", "product-005"],
+      "status": "active"
+    },
+    {
+      "id": "product-004",
+      "name": "Wireless Noise Cancelling Headphones",
+      "description": "Premium over-ear headphones with active noise cancelling and 30-hour battery life.",
+      "price": 299.99,
+      "discount": {
+        "amount": 20.00,
+        "type": "fixed",
+        "validUntil": "2024-09-25T23:59:59Z"
+      },
+      "category": "Headphones",
+      "brand": "SoundWave",
+      "stock": {
+        "quantity": 40,
+        "availability": "in stock"
+      },
+      "images": [
+        {
+          "url": "https://example.com/noise-cancelling-headphones.jpg",
+          "altText": "Noise Cancelling Headphones",
+          "isPrimary": true
+        }
+      ],
+      "ratings": {
+        "average": 4.9,
+        "reviews": [],
+        "totalReviews": 300
+      },
+      "sku": "HPHN001",
+      "weight": 0.5,
+      "tags": ["headphones", "soundwave"],
+      "createdAt": "2024-07-20T10:00:00Z",
+      "updatedAt": "2024-08-28T14:23:00Z",
+      "relatedProducts": ["product-005", "product-006"],
+      "status": "active"
+    },
+    {
+      "id": "product-005",
+      "name": "4K Ultra HD Camera",
+      "description": "A compact 4K camera with a 20MP sensor and 5x optical zoom.",
+      "price": 499.99,
+      "discount": {
+        "amount": 50.00,
+        "type": "fixed",
+        "validUntil": "2024-10-01T23:59:59Z"
+      },
+      "category": "Camera",
+      "brand": "PhotoPro",
+      "stock": {
+        "quantity": 25,
+        "availability": "in stock"
+      },
+      "images": [
+        {
+          "url": "https://example.com/4k-ultra-hd-camera.jpg",
+          "altText": "4K Ultra HD Camera",
+          "isPrimary": true
+        }
+      ],
+      "ratings": {
+        "average": 4.7,
+        "reviews": [],
+        "totalReviews": 180
+      },
+      "sku": "CAM001",
+      "weight": 0.4,
+      "tags": ["camera", "photopro", "4k"],
+      "createdAt": "2024-06-15T10:00:00Z",
+      "updatedAt": "2024-08-27T14:23:00Z",
+      "relatedProducts": ["product-006", "product-007"],
+      "status": "active"
+    },
+    {
+      "id": "product-006",
+      "name": "Smartwatch S7",
+      "description": "Advanced smartwatch with health monitoring and GPS tracking.",
+      "price": 349.99,
+      "discount": {
+        "amount": 30.00,
+        "type": "fixed",
+        "validUntil": "2024-09-20T23:59:59Z"
+      },
+      "category": "Watch",
+      "brand": "WearableTech",
+      "stock": {
+        "quantity": 60,
+        "availability": "in stock"
+      },
+      "images": [
+        {
+          "url": "https://example.com/smartwatch-s7.jpg",
+          "altText": "Smartwatch S7",
+          "isPrimary": true
+        }
+      ],
+      "ratings": {
+        "average": 4.5,
+        "reviews": [],
+        "totalReviews": 250
+      },
+      "sku": "WCH001",
+      "weight": 0.1,
+      "tags": ["smartwatch", "wearabletech"],
+      "createdAt": "2024-08-05T10:00:00Z",
+      "updatedAt": "2024-08-29T14:23:00Z",
+      "relatedProducts": ["product-007", "product-008"],
+      "status": "active"
+    },
+    {
+      "id": "product-007",
+      "name": "Gaming Console Z",
+      "description": "Next-gen gaming console with 8K support and 1TB storage.",
+      "price": 499.99,
+      "discount": {
+        "amount": 50.00,
+        "type": "fixed",
+        "validUntil": "2024-09-30T23:59:59Z"
+      },
+      "category": "Gaming",
+      "brand": "GameWorld",
+      "stock": {
+        "quantity": 35,
+        "availability": "in stock"
+      },
+      "images": [
+        {
+          "url": "https://example.com/gaming-console-z.jpg",
+          "altText": "Gaming Console Z",
+          "isPrimary": true
+        }
+      ],
+      "ratings": {
+        "average": 4.8,
+        "reviews": [],
+        "totalReviews": 220
+      },
+      "sku": "GAM002",
+      "weight": 3.5,
+      "tags": ["gaming", "console", "gameworld"],
+      "createdAt": "2024-08-10T10:00:00Z",
+      "updatedAt": "2024-08-28T14:23:00Z",
+      "relatedProducts": ["product-008", "product-009"],
+      "status": "active"
+    },
+    {
+      "id": "product-008",
+      "name": "Wireless Earbuds Pro",
+      "description": "True wireless earbuds with noise cancellation and 24-hour battery life.",
+      "price": 149.99,
+      "discount": {
+        "amount": 15.00,
+        "type": "fixed",
+        "validUntil": "2024-09-20T23:59:59Z"
+      },
+      "category": "Headphones",
+      "brand": "SoundWave",
+      "stock": {
+        "quantity": 45,
+        "availability": "in stock"
+      },
+      "images": [
+        {
+          "url": "https://example.com/wireless-earbuds-pro.jpg",
+          "altText": "Wireless Earbuds Pro",
+          "isPrimary": true
+        }
+      ],
+      "ratings": {
+        "average": 4.6,
+        "reviews": [],
+        "totalReviews": 320
+      },
+      "sku": "HPHN002",
+      "weight": 0.05,
+      "tags": ["earbuds", "wireless", "soundwave"],
+      "createdAt": "2024-08-03T10:00:00Z",
+      "updatedAt": "2024-08-27T14:23:00Z",
+      "relatedProducts": ["product-009", "product-010"],
+      "status": "active"
+    },
+    {
+      "id": "product-009",
+      "name": "Action Camera 360",
+      "description": "Waterproof 360-degree action camera with 4K video and 12MP photos.",
+      "price": 399.99,
+      "discount": {
+        "amount": 40.00,
+        "type": "fixed",
+        "validUntil": "2024-09-30T23:59:59Z"
+      },
+      "category": "Camera",
+      "brand": "AdventureCam",
+      "stock": {
+        "quantity": 25,
+        "availability": "in stock"
+      },
+      "images": [
+        {
+          "url": "https://example.com/action-camera-360.jpg",
+          "altText": "Action Camera 360",
+          "isPrimary": true
+        }
+      ],
+      "ratings": {
+        "average": 4.7,
+        "reviews": [],
+        "totalReviews": 140
+      },
+      "sku": "CAM002",
+      "weight": 0.3,
+      "tags": ["camera", "action", "adventurecam"],
+      "createdAt": "2024-07-25T10:00:00Z",
+      "updatedAt": "2024-08-27T14:23:00Z",
+      "relatedProducts": ["product-010", "product-011"],
+      "status": "active"
+    },
+    {
+      "id": "product-010",
+      "name": "Smartphone Lite 10",
+      "description": "Affordable smartphone with a 6.1-inch display and 64GB storage.",
+      "price": 399.99,
+      "discount": {
+        "amount": 30.00,
+        "type": "fixed",
+        "validUntil": "2024-09-15T23:59:59Z"
+      },
+      "category": "Smartphone",
+      "brand": "MobileTech",
+      "stock": {
+        "quantity": 55,
+        "availability": "in stock"
+      },
+      "images": [
+        {
+          "url": "https://example.com/smartphone-lite-10.jpg",
+          "altText": "Smartphone Lite 10",
+          "isPrimary": true
+        }
+      ],
+      "ratings": {
+        "average": 4.5,
+        "reviews": [],
+        "totalReviews": 180
+      },
+      "sku": "SMRT002",
+      "weight": 0.18,
+      "tags": ["smartphone", "mobiletech", "lite"],
+      "createdAt": "2024-08-01T10:00:00Z",
+      "updatedAt": "2024-08-29T14:23:00Z",
+      "relatedProducts": ["product-011", "product-012"],
+      "status": "active"
+    }
+  ]
+  

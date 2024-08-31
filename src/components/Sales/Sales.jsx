@@ -1,9 +1,7 @@
 import SectionHeader from '../SectionHeader';
 import { Product } from '../Product/Product';
 
-import { products } from '../../assets/data/data'
-
-const Sales = ({scrollable = true}) => {
+const Sales = ({products ,scrollable = true}) => {
     return (
         <section>
             <SectionHeader title="Today's" subtitle="Flash Sales" topButtons={true} />
@@ -16,7 +14,7 @@ const Sales = ({scrollable = true}) => {
                                     <Product product={product} /> 
                                 </article>
                             ) : (
-                                <Product product={product} key={index} />
+                                <Product key={index} product={product} />
                             )}
                         </>
                     )

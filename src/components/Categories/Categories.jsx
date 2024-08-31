@@ -1,42 +1,45 @@
+import { useNavigate } from "react-router-dom"
 import SectionHeader from "../SectionHeader"
 import { Monitor, Smartphone, Watch, Camera, Headphones, Gamepad2 } from 'lucide-react'
 
 const Categories = () => {
+    const navigate = useNavigate()
+
     return (
         <section>
             <SectionHeader title="Categories" subtitle="Browse By Category" topButtons={true} />
             <div className='scrollable-product-container'>
-                <article className='category-card'>
+                <article className='category-card' onClick={() => navigate('/products/computers')}>
                     <figure>
                         <Monitor size={42} />
                         <figcaption style={{ fontSize: '1rem' }}>Computer</figcaption>
                     </figure>
                 </article>
-                <article className='category-card'>
+                <article className='category-card' onClick={() => navigate('/products/smartphones')}>
                     <figure>
                         <Smartphone size={42} />
                         <figcaption style={{ fontSize: '1rem' }}>SmartPhone</figcaption>
                     </figure>
                 </article>
-                <article className='category-card'>
+                <article className='category-card' onClick={() => navigate('/products/watches')}>
                     <figure>
                         <Watch size={42} />
                         <figcaption style={{ fontSize: '1rem' }}>Watch</figcaption>
                     </figure>
                 </article>
-                <article className='category-card'>
+                <article className='category-card' onClick={() => navigate('/products/camera')}>
                     <figure>
                         <Camera size={42} />
                         <figcaption style={{ fontSize: '1rem' }}>Camera</figcaption>
                     </figure>
                 </article>
-                <article className='category-card'>
+                <article className='category-card' onClick={() => navigate('/products/headphones')}>
                     <figure>
                         <Headphones size={42} />
                         <figcaption style={{ fontSize: '1rem' }}>Headphones</figcaption>
                     </figure>
                 </article>
-                <article className='category-card'>
+                <article className='category-card' onClick={() => navigate('/products/gaming-accessories')}>
                     <figure>
                         <Gamepad2 size={42} />
                         <figcaption style={{ fontSize: '1rem' }}>Gaming</figcaption>

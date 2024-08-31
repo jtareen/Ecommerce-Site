@@ -282,6 +282,11 @@ main section{
         grid-column: 3 / 5;
         grid-row: 4;
     }
+    .category-card{
+        width: 100px;
+        min-width: 100px;
+        height: 100px;
+    }
 }
 
 @media (max-width: 600px) {

@@ -1,11 +1,13 @@
 import React from "react";
 import { Heart} from 'lucide-react'
+import { useGlobalContext } from "../../Context";
 
 export function Product({ product }) {
+
     return (<article className='product'>
         <figure>
-            <img src={product.image} alt={product.name} />
-            <span>-{product.discount_percentage}%</span>
+            <img src={product.images[0]?.url} alt={product.name} />
+            {product.discount && <span>-{product.discount}%</span>}
             <div>
                 <button className='btn-3'><Heart size={20} /></button>
             </div>
@@ -17,15 +19,15 @@ export function Product({ product }) {
                 marginRight: '4%',
                 fontWeight: 'bold'
             }}>
-                ${product.price}
+                ${product.discount ? (product.price - (product.price * (product.discount / 100))).toFixed(2) : product.price}
             </span>
-            <span style={{
+            {product.discount && <span style={{
                 color: 'var(--Text-1)',
                 textDecoration: 'line-through',
                 fontWeight: 'bold'
             }}>
-                ${product.original_price}
-            </span>
+                ${product.price.toFixed(2)}
+            </span>}
         </p>
     </article>);
 }
