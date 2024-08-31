@@ -1,6 +1,7 @@
 import './App.css'
-import Home from './components/home/home'
-import Nav from './components/nav'
+import Home from './pages/Home'
+import Nav from './components/Nav/Nav'
+import Footer from './components/Footer/Footer'
 
 
 function App() {
@@ -9,6 +10,9 @@ function App() {
       <Nav />
       <hr />
       <Home />
+      
+      <hr />
+      <Footer />
     </>
   )
 }
