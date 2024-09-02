@@ -8,10 +8,7 @@ import './css/Home.css'
 import { getHomePageProducts } from "../assets/data/getData"
 
 const Home = () => {
-    const {discountedProducts, bestSellingProducts} = getHomePageProducts()
-
-    console.log(discountedProducts)
-    console.log(bestSellingProducts)
+    const {discountedProducts, bestSellingProducts, newArrival} = getHomePageProducts()
 
     return (
         <main>
@@ -23,7 +20,7 @@ const Home = () => {
             <hr />
             <ProductSection title="This Month" subtitle="Best Selling Products" products={bestSellingProducts} topButton={true}></ProductSection>
             <hr />
-            <NewArrivals />
+            <NewArrivals products={newArrival} />
             <FeatureBlock />
         </ main>
     )

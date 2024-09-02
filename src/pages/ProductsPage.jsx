@@ -4,17 +4,30 @@ import ProductList from "../components/ProductList.jsx/ProductList"
 import { getAllProducts } from "../assets/data/getData"
 import './css/productsPage.css'
 
-const ProductPage = () => {
+const ProductsPage = () => {
     const { category } = useParams()
-    const products = getAllProducts()
+    const products = getAllProducts(category)
 
     return <main >
+        <p style={{
+            fontFamily: 'var(--Secondary-font)',
+            color: 'var(--Text-1)'
+        }}>Home /  {category ? (
+            <>
+                Products / <span style={{
+                    color: 'var(--Text-2)'
+                }}>{category}</span>
+            </>
+        ) : (
+            <span style={{
+                color: 'var(--Text-2)'
+            }}>Products</span>
+        )}</p>
         <Categories />
-        <h3>
-        {category ? `${category}` : 'All'} Products Page
-        </h3>
-        <ProductList products={products}/>
+        <ProductList products={products} />
     </main>
 }
 
-export default ProductPage
+
+
+export default ProductsPage

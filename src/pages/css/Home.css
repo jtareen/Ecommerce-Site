@@ -8,14 +8,21 @@ main{
     display: flex;
     width: 100%;
     height: 70vh;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .slide{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: all ease 0.5s;
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Added transition effects */
+    opacity: 1; /* Start with image hidden */
+    transform: scale(1); /* Slight zoom out effect */
+}
+
+.slide.change {
+    opacity: 0; /* Fade out */
+    transform: scale(1.05); /* Slight zoom effect */
 }
 
 .slide-pointer{
@@ -36,7 +43,7 @@ main{
     height: 10px;
     background-color: rgba(255, 255, 255, 0.481);
     border-radius: 50%;
-    transition: all ease-out 0.2s;
+    transition: all ease 0.2s;
 }
 
 .slide-pointer span:hover{
@@ -98,6 +105,7 @@ main section{
 }
 
 .product{
+    cursor: pointer;
     width: 100%;
     height: fit-content;
     overflow: hidden;
@@ -110,8 +118,11 @@ main section{
     box-shadow: 0 0 10px -5px black;
 }
 
+.product:hover .btn-2{
+    height: 35px;
+}
+
 .product figure{
-    cursor: pointer;
     position: relative;
     width: 100%;
     height: 100% !important;
@@ -287,6 +298,10 @@ main section{
         min-width: 100px;
         height: 100px;
     }
+    .scrollable-product{
+        width: 30vw;
+        min-width: 30vw;
+    }
 }
 
 @media (max-width: 600px) {
@@ -301,8 +316,8 @@ main section{
         gap: 10px;
     }
     .scrollable-product{
-        width: 25vw;
-        min-width: 25vw;
+        width: 40vw;
+        min-width: 40vw;
     }
 
 }

@@ -1,23 +1,13 @@
 import SectionHeader from '../SectionHeader';
 import { Product } from '../Product/Product';
 
-const ProductSection = ({ title, subtitle, products, topButton, scrollable = false }) => {
+const ProductSection = ({ title, subtitle, products, topButton }) => {
     return (
         <section>
-            <SectionHeader title={title} subtitle={subtitle} topButton={topButton}  />
-            <div className={scrollable ? 'scrollable-product-container' : 'product-container'}>
+            <SectionHeader title={title} subtitle={subtitle} topButton={topButton} />
+            <div className='product-container'>
                 {products.map((product, index) => {
-                    return (
-                        <>
-                            {scrollable ? (
-                                <article key={index} className='scrollable-product'> 
-                                    <Product product={product} /> 
-                                </article>
-                            ) : (
-                                <Product product={product} key={index} />
-                            )}
-                        </>
-                    )
+                    return <Product product={product} key={index} />
                 })}
             </div>
         </ section>

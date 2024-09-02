@@ -13,7 +13,7 @@
     --Text-1: #7D8184;
     --Text-2: #000000;
     --Button: #000000;
-    --Button-1: #00FF66;
+    --Button-1: #32CD32;
     --Button-2: #DB4444;
     --Hover-Button-1: #A0BCE0;
     --Hover-Button-2: #E07575;
@@ -27,6 +27,7 @@
     box-sizing: border-box;
     font-family: var(--primary-font);
     scroll-behavior: smooth;
+    letter-spacing: 0.5px;
 }
 
 h1{
@@ -75,13 +76,19 @@ body {
 }
 
 .btn-2{
-    display: none;
     cursor: pointer;
-    background-color: var(--Button);
+    width: 100%;
+    background-color: #333333;
+    height: 0;
     color: var(--Text);
     border: none;
-    padding: 10px 5%;
-    transition: display ease 0.3s;
+    padding: 0 5%;
+    transition: all ease-in 0.3s;
+    transition: all ease-in 0.3s;
+}
+
+.btn-2:hover{
+    background-color: var(--Button);
 }
 
 .btn-3{
@@ -95,7 +102,13 @@ body {
     border-radius: 50%;
     margin-left: 5px;
     color: var(--Button);
-    background-color: var(--secondary);
+    transition: all ease 0.3s;
+    background-color: var(--secondary); 
+}
+
+.btn-3:hover {
+    background-color: #E0E0E0; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .header {
@@ -290,3 +303,9 @@ body {
         height: 30px;
     }
 }
+
+@media (pointer: coarse) {
+    .btn-2{
+    height: 30px !important;
+    }
+  }

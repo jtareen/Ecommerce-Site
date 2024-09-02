@@ -1,8 +1,10 @@
 import {Search, ShoppingCart, Heart, Menu, X} from 'lucide-react'
 import { useRef } from 'react'
+import {Link, useNavigate} from 'react-router-dom'
 
 const Nav = () => {
     const navRef = useRef(null)
+    const navigate = useNavigate()
 
     const toggleNav = () => {
         navRef.current.classList.toggle('toggle-navbar')
@@ -17,7 +19,7 @@ const Nav = () => {
                 </button>
                 <ul ref={navRef}>
                     <button className='icon' onClick={toggleNav}><X /></button>
-                    <li><a>Home</a></li>
+                    <li><a onClick={() => navigate('/')}>Home</a></li>
                     <li><a>Contact</a></li>
                     <li><a>About</a></li>
                     <li><a>Sign Up</a></li>
@@ -30,10 +32,10 @@ const Nav = () => {
                         <Search />
                     </button>
                 </label>
-                <button className="icon" aria-label="Wishlist">
+                <button className="icon" aria-label="Wishlist" onClick={() => navigate('/wishlist')}>
                     <Heart />
                 </button>
-                <button className="icon" aria-label="Cart">
+                <button className="icon" aria-label="Cart" onClick={() => navigate('/cart')}>
                     <ShoppingCart />
                 </button>
             </div>

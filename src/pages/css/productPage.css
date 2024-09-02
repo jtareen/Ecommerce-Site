@@ -1,0 +1,123 @@
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 10px;
+}
+
+.img-grid {
+    column-span: 1;
+}
+
+.img-grid img {
+    width: 100%;
+}
+
+.info-grid {
+    column-span: 1;
+}
+
+.info-gird p {
+    margin-top: 5px;
+}
+
+.price {
+    margin: 10px 0 !important;
+}
+
+.price span {
+    font-size: 1.4rem !important;
+    margin-right: 20px;
+}
+
+.description {
+    font-family: var(--primary-font);
+    margin-bottom: 5px;
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.buttons div {
+    display: flex;
+    flex: 1;
+    border: 2px solid var(--primary-1);
+    border-radius: 4px;
+}
+
+.product-page-btn {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 5px;
+}
+
+.minus-button{
+    background-color: inherit;
+    border-right: 2px solid var(--primary-1);
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    transition: all ease-in 0.2s;
+}
+
+.plus-button{
+    background-color: var(--secondary-2);
+    border-left: 2px solid var(--primary-1);
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px
+}
+
+.buttons div p {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem !important;
+    font-weight: bold;
+    margin-top: 0 !important;
+}
+
+.buy-btn {
+    flex: 1;
+}
+
+.wishlist-add-button {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: inherit;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 5px;
+    text-align: center;
+    transition: all ease-in 0.2s;
+}
+
+.minus-button:hover , .wishlist-add-button:hover{
+    background-color: var(--secondary);
+}
+
+.plus-button:hover{
+    background-color: var(--Hover-Button-2);
+}
+
+.related-products{
+    display: flex;
+    align-items: center;
+    color: var(--secondary-2);
+    height: 30px;
+    vertical-align: middle;
+
+}
+
+@media screen and (max-width: 750px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
