@@ -4,11 +4,11 @@ import { Instagram, Twitter, Facebook , Linkedin, SendHorizontal } from 'lucide-
 const Footer = () => {
     return <footer>
         <div className='footer-item'>
-            <h2>Exclusive</h2>
+            <h3>Exclusive</h3>
             <h5>Subscribe</h5>
             <p>Get 10% off your first order</p>
             <label htmlFor="email">
-                <input type="email" name="email" placeholder='Enter Your Email' />
+                <input type="email" id='email' name="email" placeholder='Enter Your Email' autoComplete='on' />
                 <button>
                     <SendHorizontal color="#ffffff" />
                 </button>

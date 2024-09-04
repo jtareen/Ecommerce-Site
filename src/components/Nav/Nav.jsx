@@ -1,9 +1,11 @@
 import {Search, ShoppingCart, Heart, Menu, X} from 'lucide-react'
 import { useRef } from 'react'
 import {Link, useNavigate} from 'react-router-dom'
+import { useGlobalContext } from '../../Context'
 
 const Nav = () => {
     const navRef = useRef(null)
+    const {state : {cartItems, wishlistItems}} = useGlobalContext()
     const navigate = useNavigate()
 
     const toggleNav = () => {
@@ -26,17 +28,19 @@ const Nav = () => {
                 </ul>
             </nav>
             <div>
-                <label className="search-bar">
-                    <input type="text" placeholder="What are you looking for?" />
+                <label htmlFor='search-bar' className="search-bar">
+                    <input type="text" id='search-bar' name='search-bar' placeholder="What are you looking for?" />
                     <button className="icon" aria-label="Search">
                         <Search />
                     </button>
                 </label>
                 <button className="icon" aria-label="Wishlist" onClick={() => navigate('/wishlist')}>
                     <Heart />
+                    {wishlistItems.length !== 0 ? <span>{wishlistItems.length}</span> : null}
                 </button>
                 <button className="icon" aria-label="Cart" onClick={() => navigate('/cart')}>
                     <ShoppingCart />
+                    {cartItems.length !== 0 ? <span>{cartItems.length}</span> : null}
                 </button>
             </div>
         </header>

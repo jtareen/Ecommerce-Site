@@ -1,12 +1,13 @@
-import a_001 from '../assets/images/products/a_001.webp'
-import a_002 from '../assets/images/products/a_002.webp'
-import { ChevronDown, ChevronUp } from 'lucide-react'
-import './css/cart.css'
+import CartItem from '../components/CartItem/CartItem';
 import { useGlobalContext } from '../Context'
+import { useNavigate } from 'react-router-dom'
+import './css/cart.css'
 
 const Cart = () => {
-    const {state} = useGlobalContext()
+    const {state, dispatch} = useGlobalContext()
+    const navigate = useNavigate()
     const {cartItems} = state
+    let subTotal = 0
 
     return <main>
         <p style={{
@@ -26,30 +27,29 @@ const Cart = () => {
             </thead>
             <tbody>
                 {cartItems.map((item, index) => {
-                    return (
-                        <tr key={index}>
-                            <td className='vertical-align'>
-                                <figure>
-                                    <img src={item.imgUrl} alt={item.name} width="50px" />
-                                </figure>
-                                {item.name}
-                            </td>
-                            <td>${item.price}</td>
-                            <td>
-                                <div className='quantity-cell'>
-                                    {item.quantity}
-                                    <div>
-                                        <button className='vertical-align'><ChevronUp size={16} /></button>
-                                        <button className='vertical-align'><ChevronDown size={16} /></button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>${item.quantity * item.price}</td>
-                        </tr>
-                    )
+                    subTotal += item.quantity * item.price
+
+                    return <CartItem key={index} item={item} dispatch={dispatch}  />
                 })}
             </tbody>
         </table>
+        <section className='cart-bottom-section'>
+                    <button className='btn-4' onClick={() => navigate('/')}>Return to Shop</button>
+                    <div>
+                        <h5>Cart Total</h5>
+                        <div><span>Subtotal: </span><span>${subTotal.toFixed(2)}</span></div>
+                        <hr />
+                        <div><span>Shipping: </span><span>Free</span></div>
+                        <hr />
+                        <div><span>Total: </span><span>${subTotal.toFixed(2)}</span></div>
+                        <hr />
+                        <div style={{
+                            justifyContent: 'center'
+                        }}>
+                            <button className='btn'>Proceed to checkout</button>
+                        </div>
+                    </div>
+        </section>
     </main>
 }
 

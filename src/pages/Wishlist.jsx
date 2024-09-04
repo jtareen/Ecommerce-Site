@@ -1,7 +1,12 @@
 
 const Wishlist = () => {
     return <main>
-        wishlist
+        <p style={{
+            fontFamily: 'var(--Secondary-font)',
+            color: 'var(--Text-1)'
+        }}>Home / <span style={{
+            color: 'var(--Text-2)'
+        }}>Wishlist</span></p>
     </main>
 }
 

@@ -7,11 +7,13 @@ import ProductsPage from './pages/ProductsPage'
 import ProductPage from './pages/ProductPage'
 import Wishlist from './pages/Wishlist'
 import Cart from './pages/Cart'
+import ScrollToTop from './components/ScrollToTop'
 
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Nav />
       <hr />
 

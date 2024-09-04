@@ -115,7 +115,7 @@ main section{
 }
 
 .product:hover{
-    box-shadow: 0 0 10px -5px black;
+    box-shadow: 0 0 10px -3px rgb(0, 0, 0, 0.2);
 }
 
 .product:hover .btn-2{
@@ -184,6 +184,11 @@ main section{
 .category-card:hover{
     background-color: var(--secondary-2);
     color: var(--secondary);
+}
+
+.active{
+    background-color: var(--secondary-2) !important;
+    color: var(--secondary) !important;
 }
 
 .category-card figure{
