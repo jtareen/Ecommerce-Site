@@ -1,40 +1,52 @@
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { getProduct } from "../assets/data/getData"
 import { Product } from '../components/Product/Product';
 import './css/productPage.css'
-import { capitalizeFirstLetters } from "../js funcions/script"
+import { capitalizeFirstLetters } from "../utils/utils"
 import { Plus, Minus, Heart } from "lucide-react"
-import { useState } from "react"
-import { useGlobalContext } from "../Context";
+import { useEffect, useState } from "react"
+import { useGlobalContext } from "../Context/Context";
 
 const ProductPage = () => {
     const { 'product-id': productId } = useParams()
-    const [noOfProducts, setNoOfProducts] = useState(1)
-    const {dispatch} = useGlobalContext()
+    const [noOfProducts, setNoOfProducts] = useState(null)
+    const { addToCart } = useGlobalContext()
     const { product, relatedProducts } = getProduct(productId)
 
+    useEffect(() => {
+        setNoOfProducts(1)
+    }, [productId])
+
     const addProduct = () => {
-        if (noOfProducts === product.stock.quantity) {
-            alert('No more Stock Available')
+        if (noOfProducts >= 5 || noOfProducts === product.stock.quantity) {
+            alert('Can not add more then five Item of same product to cart')
             return
         }
         setNoOfProducts(noOfProducts + 1)
     }
 
     const subProduct = () => {
-        if (noOfProducts === 0) {
+        if (noOfProducts <= 1) {
             return
         }
         setNoOfProducts(noOfProducts - 1)
     }
 
+    const addToCartBtnHandler = () => {
+        addToCart(product, noOfProducts)
+        setNoOfProducts(1)
+    }
+
     return <main>
-        <p style={{
-            fontFamily: 'var(--Secondary-font)',
-            color: 'var(--Text-1)'
-        }}>Home / {product.category} /  <span style={{
-            color: 'var(--Text-2)'
-        }}>{product.name}</span></p>
+        <p className="breadcrumb">
+            <Link to='/'>Home</Link>
+            &nbsp;/&nbsp;
+            <Link to='/products'>Products</Link>
+            &nbsp;/&nbsp;
+            <Link to={`/products/${product.category}`}>{product.category}</Link>
+            &nbsp;/&nbsp;
+            <span>{product.name}</span>
+        </p>
         <section className="product-grid">
             <div className="img-grid">
                 <img src={product?.images[0]?.url} alt={product?.images[0]?.altText} />
@@ -75,7 +87,7 @@ const ProductPage = () => {
                             <Plus color="#F5F5F5" />
                         </button>
                     </div>
-                    <button className="btn buy-btn" onClick={() => dispatch({type: 'ADD_TO_CART', payload: {product, quantity: noOfProducts}})}>Buy Now</button>
+                    <button className="btn buy-btn" onClick={addToCartBtnHandler}>Buy Now</button>
                     <button className="wishlist-add-button">
                         <Heart />
                     </button>

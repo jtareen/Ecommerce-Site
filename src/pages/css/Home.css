@@ -46,10 +46,6 @@ main{
     transition: all ease 0.2s;
 }
 
-.slide-pointer span:hover{
-    background-color: white;
-}
-
 .current{
     background-color: var(--secondary-2) !important;
     border: 2px solid var(--primary);
@@ -114,14 +110,6 @@ main section{
     transition: all ease-in 0.3s;
 }
 
-.product:hover{
-    box-shadow: 0 0 10px -3px rgb(0, 0, 0, 0.2);
-}
-
-.product:hover .btn-2{
-    height: 35px;
-}
-
 .product figure{
     position: relative;
     width: 100%;
@@ -162,9 +150,11 @@ main section{
 }
 
 .product p{
-    font-weight: bold;
+    font-weight: 600;
+    background-color: white;
     font-family: var(--secondary-font);
-    margin: 10px;
+    margin: 5px 2px;
+    z-index: 3;
 }
 
 .category-card{
@@ -179,11 +169,6 @@ main section{
     justify-content: center;
     align-items: center;
     transition: all ease 0.3s;
-}
-
-.category-card:hover{
-    background-color: var(--secondary-2);
-    color: var(--secondary);
 }
 
 .active{
@@ -324,5 +309,23 @@ main section{
         width: 40vw;
         min-width: 40vw;
     }
+}
 
+@media (hover: hover) and (pointer: fine) {
+    .slide-pointer span:hover{
+        background-color: white;
+    }
+
+    .product:hover{
+        box-shadow: 0 0 10px -3px rgb(0, 0, 0, 0.2);
+    }
+    
+    .product:hover .btn-2{
+        height: 35px;
+    }
+
+    .category-card:hover{
+        background-color: var(--secondary-2);
+        color: var(--secondary);
+    }
 }

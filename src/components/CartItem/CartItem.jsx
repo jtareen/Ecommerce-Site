@@ -1,16 +1,12 @@
 import { ChevronDown, ChevronUp, Type, X } from 'lucide-react'
+import { useGlobalContext } from '../../Context/Context'
 
-const CartItem = ({
-    item: {id , name, imgUrl, price, quantity },
-    dispatch
-}) => {
-
+const CartItem = ({ item: {id , name, imgUrl, price, quantity } }) => {
+    const {removeCartItem , decreaseCartItemQuantity , increaseCartItemQuantity} = useGlobalContext()
+    
     const increaseQuantity = () => {
-        if(quantity < 5){
-            dispatch({type: 'INCREASE-QUANTITY', payload: id})
-        }
-        else{
-            alert('Can not order more then five Item of this product')
+        if (!increaseCartItemQuantity(id)) {
+            alert('Can not add more then five Item of same product to cart')
         }
     }
 
@@ -18,10 +14,7 @@ const CartItem = ({
         <td className='vertical-align'>
             <figure>
                 <img src={imgUrl} alt={name} width="50px" />
-                <button className='remove-from-cart-btn' onClick={() => dispatch({
-                    type: 'REMOVE_FROM_CART',
-                    payload: id
-                })}><X size={16} /></button>
+                <button className='remove-from-cart-btn' onClick={() => removeCartItem(id)}><X size={16} /></button>
             </figure>
             {name}
         </td>
@@ -31,7 +24,7 @@ const CartItem = ({
                 {quantity}
                 <div>
                     <button className='vertical-align' onClick={increaseQuantity}><ChevronUp size={16} /></button>
-                    <button className='vertical-align' onClick={() => dispatch({type: 'DECREASE-QUANTITY', payload: id})}><ChevronDown size={16} /></button>
+                    <button className='vertical-align' onClick={() => decreaseCartItemQuantity(id)}><ChevronDown size={16} /></button>
                 </div>
             </div>
         </td>

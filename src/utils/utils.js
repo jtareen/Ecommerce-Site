@@ -1,5 +1,3 @@
-
-
 export function capitalizeFirstLetters(str) {
     return str
       .split(' ')                     // Split the string into an array of words

@@ -8,7 +8,8 @@ import ProductPage from './pages/ProductPage'
 import Wishlist from './pages/Wishlist'
 import Cart from './pages/Cart'
 import ScrollToTop from './components/ScrollToTop'
-
+import AddToCartAlert from './components/AlertComponent/AddToCartAlert'
+import NotFound from './pages/NotFound'
 
 function App() {
   return (
@@ -16,14 +17,15 @@ function App() {
       <ScrollToTop />
       <Nav />
       <hr />
-
+      <AddToCartAlert />
       <Routes>
-        <Route path='/' element={<Home />}></Route>
-        <Route path='/products' element={<ProductsPage />} ></Route>
-        <Route path='/products/:category' element={<ProductsPage />} ></Route>
-        <Route path='/product/:product-id' element={<ProductPage />} />
-        <Route path='/cart' element={<Cart />}></Route>
-        <Route path='/wishlist' element={<Wishlist />}></Route>
+        <Route path='/' element={ <Home /> }></Route>
+        <Route path='/products' element={ <ProductsPage /> } ></Route>
+        <Route path='/products/:category' element={ <ProductsPage /> } ></Route>
+        <Route path='/product/:product-id' element={ <ProductPage /> } />
+        <Route path='/cart' element={ <Cart /> }></Route>
+        <Route path='/wishlist' element={ <Wishlist /> }></Route>
+        <Route path='*' element={ <NotFound /> }></Route>
       </Routes>
 
       <hr />

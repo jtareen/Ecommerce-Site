@@ -1,16 +1,16 @@
 import React from "react";
 import { Heart} from 'lucide-react';
-import { useGlobalContext } from "../../Context";
+import { useGlobalContext } from "../../Context/Context";
 import { useNavigate } from "react-router-dom";
 
 export function Product({ product }) {
     const navigate = useNavigate()
-    const {dispatch} = useGlobalContext()
+    const {addToCart} = useGlobalContext()
 
-    const addToCart = (event) => {
+    const addToCartHandler = (event) => {
         event.stopPropagation();
         
-        dispatch({type: 'ADD_TO_CART', payload: {product , quantity: 1}})
+        addToCart(product , 1)
     }
     
     const addToWishlist = (event) => {
@@ -26,7 +26,7 @@ export function Product({ product }) {
             <div>
                 <button className='btn-3' onClick={addToWishlist}><Heart size={20} /></button>
             </div>
-        <button className="btn-2" onClick={addToCart}>Add To Cart</button>
+        <button className="btn-2" onClick={addToCartHandler}>Add To Cart</button>
         </figure>
         <p>{product.name}</p>
         <p>

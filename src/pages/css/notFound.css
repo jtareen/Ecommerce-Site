@@ -1,0 +1,28 @@
+.not-found-page section {
+    text-align: center;
+}
+
+.not-found-page section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 300px;
+}
+
+.not-found-page h1 {
+    margin: 20px 0;
+    text-transform: capitalize;
+    font-size: 3.5rem !important;
+    font-weight: 600;
+}
+
+.not-found-page section p {
+    margin: 10px 0;
+    font-size: 1rem !important;
+    font-weight: 500;
+}
+
+.not-found-page section button{
+    margin: 40px 0;
+}

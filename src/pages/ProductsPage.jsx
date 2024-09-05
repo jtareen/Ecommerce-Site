@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useParams , Link } from "react-router-dom"
 import Categories from "../components/Categories/Categories"
 import ProductList from "../components/ProductList.jsx/ProductList"
 import { getAllProducts } from "../assets/data/getData"
@@ -9,19 +9,17 @@ const ProductsPage = () => {
     const products = getAllProducts(category)
 
     return <main >
-        <p style={{
-            fontFamily: 'var(--Secondary-font)',
-            color: 'var(--Text-1)'
-        }}>Home /  {category ? (
+        <p className="breadcrumb">
+            <Link to='/'>Home</Link>
+            &nbsp;/&nbsp;
+            {category ? (
             <>
-                Products / <span style={{
-                    color: 'var(--Text-2)'
-                }}>{category}</span>
+                <Link to='/products'>Products</Link>
+                &nbsp;/&nbsp;
+                <span>{category}</span>
             </>
         ) : (
-            <span style={{
-                color: 'var(--Text-2)'
-            }}>Products</span>
+            <span>Products</span>
         )}</p>
         <Categories />
         <ProductList products={products} />

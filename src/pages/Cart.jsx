@@ -1,21 +1,20 @@
 import CartItem from '../components/CartItem/CartItem';
-import { useGlobalContext } from '../Context'
-import { useNavigate } from 'react-router-dom'
+import { useGlobalContext } from '../Context/Context'
+import { useNavigate, Link } from 'react-router-dom'
 import './css/cart.css'
 
 const Cart = () => {
-    const {state, dispatch} = useGlobalContext()
+    const {cartItems, totalCartAmount , dispatch} = useGlobalContext()
     const navigate = useNavigate()
-    const {cartItems} = state
-    let subTotal = 0
+    
+    const cartItemsArray = Array.from(cartItems)
 
     return <main>
-        <p style={{
-            fontFamily: 'var(--Secondary-font)',
-            color: 'var(--Text-1)'
-        }}>Home / <span style={{
-            color: 'var(--Text-2)'
-        }}>Cart</span></p>
+        <p className='breadcrumb'>
+            <Link to='/'>Home</Link>
+            &nbsp;/&nbsp;
+            <span>Cart</span>
+        </p>
         <table className='cart-table'>
             <thead>
                 <tr>
@@ -26,10 +25,8 @@ const Cart = () => {
                 </tr>
             </thead>
             <tbody>
-                {cartItems.map((item, index) => {
-                    subTotal += item.quantity * item.price
-
-                    return <CartItem key={index} item={item} dispatch={dispatch}  />
+                {cartItemsArray.map((item, index) => {
+                    return <CartItem key={index} item={item[1]} dispatch={dispatch}  />
                 })}
             </tbody>
         </table>
@@ -37,11 +34,11 @@ const Cart = () => {
                     <button className='btn-4' onClick={() => navigate('/')}>Return to Shop</button>
                     <div>
                         <h5>Cart Total</h5>
-                        <div><span>Subtotal: </span><span>${subTotal.toFixed(2)}</span></div>
+                        <div><span>Subtotal: </span><span>${totalCartAmount?.toFixed(2) || 0}</span></div>
                         <hr />
                         <div><span>Shipping: </span><span>Free</span></div>
                         <hr />
-                        <div><span>Total: </span><span>${subTotal.toFixed(2)}</span></div>
+                        <div><span>Total: </span><span>${totalCartAmount?.toFixed(2) || 0}</span></div>
                         <hr />
                         <div style={{
                             justifyContent: 'center'
