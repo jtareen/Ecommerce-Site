@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 export function Product({ product }) {
     const navigate = useNavigate()
-    const {addToCart} = useGlobalContext()
+    const {wishlistItems, addToCart , addRemoveWishlist} = useGlobalContext()
 
     const addToCartHandler = (event) => {
         event.stopPropagation();
@@ -16,7 +16,7 @@ export function Product({ product }) {
     const addToWishlist = (event) => {
         event.stopPropagation();
 
-        console.log('wishlist not added')
+        addRemoveWishlist(product)
     }
 
     return (<article className='product' onClick={() => navigate(`/product/${product.id}`)}>
@@ -24,7 +24,7 @@ export function Product({ product }) {
             <img src={product.images[0]?.url} alt={product.name} />
             {product.discount && <span>-{product.discount}%</span>}
             <div>
-                <button className='btn-3' onClick={addToWishlist}><Heart size={20} /></button>
+                <button className='btn-3' onClick={addToWishlist}>{wishlistItems.has(product.id) ? (<Heart size={20} color="#DB4444" />) : (<Heart size={20} />)}</button>
             </div>
         <button className="btn-2" onClick={addToCartHandler}>Add To Cart</button>
         </figure>

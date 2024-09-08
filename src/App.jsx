@@ -10,6 +10,7 @@ import Cart from './pages/Cart'
 import ScrollToTop from './components/ScrollToTop'
 import AddToCartAlert from './components/AlertComponent/AddToCartAlert'
 import NotFound from './pages/NotFound'
+import { useGlobalContext } from './Context/Context'
 
 function App() {
   return (

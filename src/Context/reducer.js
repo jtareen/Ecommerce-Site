@@ -73,12 +73,22 @@ export const reducer = (state, action) => {
             return {...state, cartItems: newCartItems}
         }
 
-        case ADD_TO_WISHLIST:
-            let { wishlistItems } = state
-            return { ...state, wishlistItems: [...wishlistItems, action.payload] };
+        case ADD_TO_WISHLIST:{
+            const newWishlistItems = new Map(state.wishlistItems)
+            newWishlistItems.set(action.payload.product.id, action.payload.product)
+            
+            localStorage.setItem('wishlistItems', JSON.stringify(Array.from(newWishlistItems.entries())))
+            return { ...state, wishlistItems: newWishlistItems};
+        }
 
-        case REMOVE_FROM_WISHLIST:
-            return { ...state }
+        case REMOVE_FROM_WISHLIST: {
+            const newWishlistItems = new Map(state.wishlistItems)
+            newWishlistItems.delete(action.payload.id)
+    
+            localStorage.setItem('wishlistItems', JSON.stringify(Array.from(newWishlistItems.entries())))
+            return { ...state, wishlistItems: newWishlistItems};
+        }
+            
 
         case CLOSE_CART_ALERT: {
             return {...state, cartAlert: {visible: false, product: null, quantity: 0}}

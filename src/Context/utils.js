@@ -10,13 +10,3 @@ export const getCartTotals = (cartItems) => {
 
     return {totalCartItems , totalCartCost}
 }
-
-export const getWishlistTotals = (wishlistItems) => {
-    let totalWishlistItems = 0
-
-    for(let {quantity } of wishlistItems.values()){
-        totalWishlistItems += quantity
-    }
-
-    return totalWishlistItems
-}

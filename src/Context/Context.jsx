@@ -1,6 +1,6 @@
 import { createContext, useContext, useReducer } from "react"
 import { reducer } from "./reducer"
-import { getCartTotals, getWishlistTotals } from "./utils"
+import { getCartTotals } from "./utils"
 import { 
     ADD_TO_CART,
     REMOVE_FROM_CART,
@@ -13,7 +13,7 @@ import {
 
 const initialState = {
     cartItems: new Map(JSON.parse(sessionStorage.getItem('cartItems'))),
-    wishlistItems: new Map(JSON.parse(localStorage.getItem('cartItems'))),
+    wishlistItems: new Map(JSON.parse(localStorage.getItem('wishlistItems'))),
     alert: {
         visible: false,
         message: '',
@@ -31,8 +31,8 @@ export const useGlobalContext = () => useContext(GlobalContext)
 
 const AppContext = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState)
-    const {totalCartItems , totalCartAmount} = getCartTotals(state.cartItems)
-    const totalWishlistItems = getWishlistTotals(state.wishlistItems)
+    const {totalCartItems , totalCartCost} = getCartTotals(state.cartItems)
+    const totalWishlistItems = state.wishlistItems.size
 
     const addToCart = (product, quantity) => {
         dispatch({type: ADD_TO_CART, payload: {product , quantity}})
@@ -65,6 +65,14 @@ const AppContext = ({ children }) => {
         return false
     }
 
+    const addRemoveWishlist = (product) => {
+        if (state.wishlistItems.has(product.id)){
+            dispatch({type: REMOVE_FROM_WISHLIST, payload: {id: product.id}})
+        } else {
+            dispatch({type: ADD_TO_WISHLIST, payload: {product}})
+        }
+    }
+
     const closeCartAlert = () => {
         dispatch({type: CLOSE_CART_ALERT})
     }
@@ -73,11 +81,12 @@ const AppContext = ({ children }) => {
         ...state,
         totalCartItems,
         totalWishlistItems,
-        totalCartAmount,
+        totalCartCost,
         addToCart,
         removeCartItem,
         decreaseCartItemQuantity,
         increaseCartItemQuantity,
+        addRemoveWishlist,
         closeCartAlert,
         }}>
         {children}

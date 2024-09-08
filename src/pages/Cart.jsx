@@ -4,7 +4,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import './css/cart.css'
 
 const Cart = () => {
-    const {cartItems, totalCartAmount , dispatch} = useGlobalContext()
+    const {cartItems, totalCartCost , dispatch} = useGlobalContext()
     const navigate = useNavigate()
     
     const cartItemsArray = Array.from(cartItems)
@@ -34,11 +34,11 @@ const Cart = () => {
                     <button className='btn-4' onClick={() => navigate('/')}>Return to Shop</button>
                     <div>
                         <h5>Cart Total</h5>
-                        <div><span>Subtotal: </span><span>${totalCartAmount?.toFixed(2) || 0}</span></div>
+                        <div><span>Subtotal: </span><span>${totalCartCost?.toFixed(2) || 0}</span></div>
                         <hr />
                         <div><span>Shipping: </span><span>Free</span></div>
                         <hr />
-                        <div><span>Total: </span><span>${totalCartAmount?.toFixed(2) || 0}</span></div>
+                        <div><span>Total: </span><span>${totalCartCost?.toFixed(2) || 0}</span></div>
                         <hr />
                         <div style={{
                             justifyContent: 'center'
