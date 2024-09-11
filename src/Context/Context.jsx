@@ -8,7 +8,9 @@ import {
     DECREASE_QUANTITY,
     ADD_TO_WISHLIST,
     REMOVE_FROM_WISHLIST,
-    CLOSE_CART_ALERT
+    CLOSE_CART_ALERT,
+    SHOW_ALERT,
+    HIDE_ALERT
 } from './actions'
 
 const initialState = {
@@ -16,7 +18,9 @@ const initialState = {
     wishlistItems: new Map(JSON.parse(localStorage.getItem('wishlistItems'))),
     alert: {
         visible: false,
+        alertHeader: '',
         message: '',
+        variant: '',
     },
     cartAlert: {
         visible: false,
@@ -45,11 +49,12 @@ const AppContext = ({ children }) => {
         })
     }
 
-    const decreaseCartItemQuantity = (id) => {
+    const decreaseCartItemQuantity = (id, name) => {
         const item = state.cartItems.get(id)
 
         if (item.quantity === 1) {
             removeCartItem(id)
+            showAlert(name, 'Item Removed from cart', 'success-red')
         }
         else {
             dispatch({type: DECREASE_QUANTITY, payload: id})
@@ -77,6 +82,14 @@ const AppContext = ({ children }) => {
         dispatch({type: CLOSE_CART_ALERT})
     }
 
+    const showAlert = (header , msg , variant) => {
+        dispatch({type: SHOW_ALERT, payload: {header , msg , variant}})
+    }
+
+    const hideAlert = () => {
+        dispatch({type: HIDE_ALERT})
+    }
+
     return <GlobalContext.Provider value={{ 
         ...state,
         totalCartItems,
@@ -88,6 +101,8 @@ const AppContext = ({ children }) => {
         increaseCartItemQuantity,
         addRemoveWishlist,
         closeCartAlert,
+        showAlert,
+        hideAlert,
         }}>
         {children}
     </GlobalContext.Provider>

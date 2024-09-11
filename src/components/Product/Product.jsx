@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 export function Product({ product }) {
     const navigate = useNavigate()
-    const {wishlistItems, addToCart , addRemoveWishlist} = useGlobalContext()
+    const {wishlistItems, addToCart , addRemoveWishlist, showAlert} = useGlobalContext()
 
     const addToCartHandler = (event) => {
         event.stopPropagation();
@@ -15,6 +15,12 @@ export function Product({ product }) {
     
     const addToWishlist = (event) => {
         event.stopPropagation();
+
+        if(wishlistItems.has(product.id)){
+            showAlert(product.name , 'Item removed from wishlist', 'success-red')
+        } else {
+            showAlert(product.name , 'Item added to wishlist', 'success')
+        }
 
         addRemoveWishlist(product)
     }

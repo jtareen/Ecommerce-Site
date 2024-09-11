@@ -4,7 +4,7 @@ import './styles.css'
 import { Trash2 } from 'lucide-react'
 
 const AddToCartAlert = () => {
-    const { cartAlert: {visible, product, quantity} , closeCartAlert , removeCartItem } = useGlobalContext()
+    const { cartAlert: {visible, product, quantity} , closeCartAlert , removeCartItem, showAlert } = useGlobalContext()
     const navigate = useNavigate()
 
     const openCart = () => {
@@ -37,6 +37,7 @@ const AddToCartAlert = () => {
                         <button className='cart-alert-close-btn' onClick={() => {
                             removeCartItem(product.id)
                             closeCartAlert()
+                            showAlert(product.name , 'Item removed from cart', 'success-red')
                         }}>
                         <Trash2 />   
                         </button>

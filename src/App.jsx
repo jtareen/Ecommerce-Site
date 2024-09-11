@@ -10,7 +10,7 @@ import Cart from './pages/Cart'
 import ScrollToTop from './components/ScrollToTop'
 import AddToCartAlert from './components/AlertComponent/AddToCartAlert'
 import NotFound from './pages/NotFound'
-import { useGlobalContext } from './Context/Context'
+import Alert from './components/AlertComponent/Alert'
 
 function App() {
   return (
@@ -19,6 +19,7 @@ function App() {
       <Nav />
       <hr />
       <AddToCartAlert />
+      <Alert />
       <Routes>
         <Route path='/' element={ <Home /> }></Route>
         <Route path='/products' element={ <ProductsPage /> } ></Route>

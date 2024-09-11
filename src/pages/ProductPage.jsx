@@ -1,16 +1,16 @@
 import { useParams, Link } from "react-router-dom"
 import { getProduct } from "../assets/data/getData"
 import { Product } from '../components/Product/Product';
-import './css/productPage.css'
 import { capitalizeFirstLetters } from "../utils/utils"
 import { Plus, Minus, Heart } from "lucide-react"
 import { useEffect, useState } from "react"
 import { useGlobalContext } from "../Context/Context";
+import './css/productPage.css'
 
 const ProductPage = () => {
     const { 'product-id': productId } = useParams()
-    const [noOfProducts, setNoOfProducts] = useState(null)
-    const { addToCart } = useGlobalContext()
+    const [ noOfProducts, setNoOfProducts ] = useState(null)
+    const { wishlistItems, addToCart, showAlert, addRemoveWishlist } = useGlobalContext()
     const { product, relatedProducts } = getProduct(productId)
 
     useEffect(() => {
@@ -19,14 +19,15 @@ const ProductPage = () => {
 
     const addProduct = () => {
         if (noOfProducts >= 5 || noOfProducts === product.stock.quantity) {
-            alert('Can not add more then five Item of same product to cart')
+            showAlert('Alert' ,'Can not add more then five Items', 'warning')
             return
         }
         setNoOfProducts(noOfProducts + 1)
     }
-
+    
     const subProduct = () => {
         if (noOfProducts <= 1) {
+            showAlert('Alert' ,'Minimum number of Item reached' , 'warning')
             return
         }
         setNoOfProducts(noOfProducts - 1)
@@ -35,6 +36,18 @@ const ProductPage = () => {
     const addToCartBtnHandler = () => {
         addToCart(product, noOfProducts)
         setNoOfProducts(1)
+    }
+
+    const addToWishlist = (event) => {
+        event.stopPropagation();
+
+        if(wishlistItems.has(product.id)){
+            showAlert(product.name , 'Item removed from wishlist', 'success-red')
+        } else {
+            showAlert(product.name , 'Item added to wishlist', 'success')
+        }
+
+        addRemoveWishlist(product)
     }
 
     return <main>
@@ -88,8 +101,8 @@ const ProductPage = () => {
                         </button>
                     </div>
                     <button className="btn buy-btn" onClick={addToCartBtnHandler}>Buy Now</button>
-                    <button className="wishlist-add-button">
-                        <Heart />
+                    <button className="wishlist-add-button" onClick={addToWishlist}>
+                        {wishlistItems.has(product.id) ? (<Heart color="#DB4444" />) : (<Heart />)}
                     </button>
                 </div>
             </div>

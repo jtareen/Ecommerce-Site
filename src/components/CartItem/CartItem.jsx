@@ -2,11 +2,11 @@ import { ChevronDown, ChevronUp, Type, X } from 'lucide-react'
 import { useGlobalContext } from '../../Context/Context'
 
 const CartItem = ({ item: {id , name, imgUrl, price, quantity } }) => {
-    const {removeCartItem , decreaseCartItemQuantity , increaseCartItemQuantity} = useGlobalContext()
+    const {removeCartItem , decreaseCartItemQuantity , increaseCartItemQuantity, showAlert} = useGlobalContext()
     
     const increaseQuantity = () => {
         if (!increaseCartItemQuantity(id)) {
-            alert('Can not add more then five Item of same product to cart')
+            showAlert('Alert' , 'Can not add more then five Items', 'warning')
         }
     }
 
@@ -14,7 +14,10 @@ const CartItem = ({ item: {id , name, imgUrl, price, quantity } }) => {
         <td className='vertical-align'>
             <figure>
                 <img src={imgUrl} alt={name} width="50px" />
-                <button className='remove-from-cart-btn' onClick={() => removeCartItem(id)}><X size={16} /></button>
+                <button className='remove-from-cart-btn' onClick={() => {
+                    removeCartItem(id)
+                    showAlert(name, 'Item removed from cart', 'success-red')
+                }}><X size={16} /></button>
             </figure>
             {name}
         </td>
@@ -24,7 +27,7 @@ const CartItem = ({ item: {id , name, imgUrl, price, quantity } }) => {
                 {quantity}
                 <div>
                     <button className='vertical-align' onClick={increaseQuantity}><ChevronUp size={16} /></button>
-                    <button className='vertical-align' onClick={() => decreaseCartItemQuantity(id)}><ChevronDown size={16} /></button>
+                    <button className='vertical-align' onClick={() => decreaseCartItemQuantity(id, name)}><ChevronDown size={16} /></button>
                 </div>
             </div>
         </td>

@@ -5,7 +5,9 @@ import {
     DECREASE_QUANTITY,
     ADD_TO_WISHLIST,
     REMOVE_FROM_WISHLIST,
-    CLOSE_CART_ALERT
+    CLOSE_CART_ALERT,
+    SHOW_ALERT,
+    HIDE_ALERT
 } from './actions'
 
 export const reducer = (state, action) => {
@@ -24,8 +26,7 @@ export const reducer = (state, action) => {
                 item = newCartItems.get(product.id);
                 item = {...item, quantity: item.quantity + quantity}
                 if (item.quantity > 5){
-                    alert('Can not add more then five Item of same product to cart')
-                    return {...state}
+                    return {...state , alert: {visible: true ,alertHeader: 'alert' , message: 'cannot add more then five items', variant: 'warning'}}
                 } else {
                     newCartItems.set(product.id, { ...item })
                 }
@@ -89,9 +90,16 @@ export const reducer = (state, action) => {
             return { ...state, wishlistItems: newWishlistItems};
         }
             
-
         case CLOSE_CART_ALERT: {
             return {...state, cartAlert: {visible: false, product: null, quantity: 0}}
+        }
+
+        case SHOW_ALERT: {
+            return {...state, alert: {visible: true ,alertHeader: action.payload.header ,message: action.payload.msg, variant: action.payload.variant}}
+        }
+
+        case HIDE_ALERT: {
+            return {...state, alert: {visible: false ,alertHeader: '' , message: ''}}
         }
 
         default:

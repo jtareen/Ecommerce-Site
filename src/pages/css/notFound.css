@@ -1,8 +1,8 @@
-.not-found-page section {
+.empty {
     text-align: center;
 }
 
-.not-found-page section {
+.empty {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,12 +17,12 @@
     font-weight: 600;
 }
 
-.not-found-page section p {
+.empty p {
     margin: 10px 0;
     font-size: 1rem !important;
     font-weight: 500;
 }
 
-.not-found-page section button{
+.empty button{
     margin: 40px 0;
 }
