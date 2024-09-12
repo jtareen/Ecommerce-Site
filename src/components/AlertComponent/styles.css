@@ -5,7 +5,7 @@
     width: 100vw;
     height: 100vh;
     background-color: rgb(256, 256, 256, 0.0);
-    z-index: 2;
+    z-index: 98;
 }
 
 .alert-container{
@@ -81,7 +81,7 @@
     border-left: 5px solid #3b82f6;
     border-radius: 4px;
     transform: translateX(-50%);
-    z-index: 90;
+    z-index: 100;
     padding: 15px;
 }
 

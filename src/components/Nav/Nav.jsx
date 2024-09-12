@@ -1,9 +1,11 @@
 import { Search, ShoppingCart, Heart, Menu, X } from 'lucide-react'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { useNavigate} from 'react-router-dom'
 import { useGlobalContext } from '../../Context/Context'
+import SearchComponent from '../SearchComponent.jsx/SearchComponent'
 
 const Nav = () => {
+    const [ search , setSearch] = useState(false)
     const navRef = useRef(null)
     const { totalCartItems, totalWishlistItems } = useGlobalContext()
     const navigate = useNavigate()
@@ -12,7 +14,10 @@ const Nav = () => {
         navRef.current.classList.toggle('toggle-navbar')
     }
 
+    const closeSearch = () => setSearch(false)
+
     return (
+        <>
         <header className="header">
             <nav className="navbar">
                 <a>Exclusive</a>
@@ -28,12 +33,12 @@ const Nav = () => {
                 </ul>
             </nav>
             <div>
-                <label htmlFor='search-bar' className="search-bar">
-                    <input type="text" id='search-bar' name='search-bar' placeholder="What are you looking for?" />
-                    <button className="icon" aria-label="Search">
+                <div className="search">
+                    <span onClick={() => setSearch(true)}>What are you looking for?</span>
+                    <button className="icon" aria-label="Search" onClick={() => setSearch(true)}>
                         <Search />
                     </button>
-                </label>
+                </div>
                 <button className="icon" aria-label="Wishlist" onClick={() => navigate('/wishlist')}>
                     <Heart />
                     {totalWishlistItems !== 0 ? <span>{totalWishlistItems}</span> : null}
@@ -44,6 +49,8 @@ const Nav = () => {
                 </button>
             </div>
         </header>
+        { search && <SearchComponent closeSearch={closeSearch} /> }
+        </>
     )
 }
 

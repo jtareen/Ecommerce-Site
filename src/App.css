@@ -21,7 +21,7 @@
     --Secondary-font: 'Inter', sans-serif;
 }
 
-body::-webkit-scrollbar{
+body::-webkit-scrollbar {
     display: none;
 }
 
@@ -212,7 +212,7 @@ body {
     gap: 15px;
 }
 
-.search-bar {
+.search {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -224,14 +224,19 @@ body {
     overflow: hidden;
 }
 
-.search-bar input {
+.search span {
+    cursor: text;
     flex: 1;
     background-color: inherit;
     border: none;
-}
-
-.search-bar input:focus {
-    outline: none;
+    font-size: 0.7rem !important;
+    white-space: nowrap;
+    /* Prevent text from wrapping */
+    overflow: hidden;
+    /* Hide overflowed text */
+    text-overflow: ellipsis;
+    /* Optional: Adds "..." at the end when text overflows */
+    display: inline-block;
 }
 
 .icon {
@@ -292,9 +297,13 @@ body {
         width: 100%;
     }
 
-    .search-bar {
+    .search {
         flex: 1;
         justify-content: space-between;
+    }
+
+    .search span {
+        font-size: 0.8rem !important;
     }
 
     .icon {
@@ -356,7 +365,7 @@ body {
         width: 0;
     }
 
-    .search-bar {
+    .search {
         height: 33px;
     }
 

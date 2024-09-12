@@ -1,0 +1,47 @@
+.search-component {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, 0.7);
+    z-index: 70;
+}
+
+#search-bar {
+    display: block;
+    background-color: var(--primary);
+    width: 70%;
+    border: none;
+    border-radius: 25px 25px 25px 25px;
+    margin: 15px auto;
+    padding: 15px;
+    outline: none;
+}
+
+#search-bar:focus {
+    box-shadow: 0 0 0 1px black,
+                0 0 10px -2px black;
+}
+
+.searched-products {
+    background-color: var(--primary);
+    width: 80%;
+    max-height: 80vh;
+    margin: 0 auto;
+    padding: 15px;
+    overflow-y: scroll;
+}
+
+.searched-products::-webkit-scrollbar{
+    display: none;
+}
+
+.searched-products strong {
+    font-weight: 600;
+    color: rgb(153, 153, 153);
+}
+
+.center-text {
+    text-align: center;
+}
