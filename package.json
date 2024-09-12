@@ -2,7 +2,7 @@
   "name": "ecommerce-site",
   "private": false,
   "version": "0.1.0",
-  "homepage": "https://jtareen.github.io/Ecommerce-Site",
+  "homepage": "https://jtareen.github.io/ecommerce-site",
   "type": "module",
   "scripts": {
     "dev": "vite",
