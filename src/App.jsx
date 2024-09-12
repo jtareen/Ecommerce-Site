@@ -2,7 +2,7 @@ import './App.css'
 import Home from './pages/Home'
 import Nav from './components/Nav/Nav'
 import Footer from './components/Footer/Footer'
-import { HashRouter as Router, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import ProductsPage from './pages/ProductsPage'
 import ProductPage from './pages/ProductPage'
 import Wishlist from './pages/Wishlist'
@@ -14,14 +14,14 @@ import Alert from './components/AlertComponent/Alert'
 
 function App() {
   return (
-    <Router basename='/ecommerce-site'>
+    <>
       <ScrollToTop />
       <Nav />
       <hr />
       <AddToCartAlert />
       <Alert />
       <Routes>
-        <Route path='/ecommerce-site' element={ <Home /> }></Route>
+        <Route path='/' element={ <Home /> }></Route>
         <Route path='/products' element={ <ProductsPage /> } ></Route>
         <Route path='/products/:category' element={ <ProductsPage /> } ></Route>
         <Route path='/product/:product-id' element={ <ProductPage /> } />
@@ -32,7 +32,7 @@ function App() {
 
       <hr />
       <Footer />
-    </Router>
+    </>
   )
 }
 
