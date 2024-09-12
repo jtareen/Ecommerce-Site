@@ -1,6 +1,6 @@
 {
   "name": "ecommerce-site",
-  "private": true,
+  "private": false,
   "version": "0.1.0",
   "homepage": "https://jtareen.github.io/Ecommerce-Site",
   "type": "module",
