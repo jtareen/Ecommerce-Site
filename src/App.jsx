@@ -14,14 +14,14 @@ import Alert from './components/AlertComponent/Alert'
 
 function App() {
   return (
-    <Router basename='/Ecommerce-Site'>
+    <Router basename='/ecommerce-site'>
       <ScrollToTop />
       <Nav />
       <hr />
       <AddToCartAlert />
       <Alert />
       <Routes>
-        <Route path='/Ecommerce-Site' element={ <Home /> }></Route>
+        <Route path='/ecommerce-site' element={ <Home /> }></Route>
         <Route path='/products' element={ <ProductsPage /> } ></Route>
         <Route path='/products/:category' element={ <ProductsPage /> } ></Route>
         <Route path='/product/:product-id' element={ <ProductPage /> } />
