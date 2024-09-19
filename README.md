@@ -16,7 +16,7 @@ This is a full-featured eCommerce web application built using React and Vite, de
 - **Build Tool**: Vite
 
 ## Live site
-- Check live site [here]()
+- Check live site [here](https://jtareen.github.io/ecommerce-site/)
 
 ## Installation
 
